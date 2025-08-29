@@ -28,8 +28,8 @@
       <a href="https://jsfiddle.net/u/staticsnoise/fiddles" target="_blank">JSFiddle</a>
     </p>
     <p>
-      <a href="https://validator.w3.org/nu/?doc=https://Sal-ah-cmd.github.io/index.html" target="_blank">HTML Validator</a> ✦
-      <a href="http://jigsaw.w3.org/css-validator/validator?uri=https://Sal-ah-cmd.github.io/styles/styles.css" target="_blank">CSS Validator</a>
+      <a href="https://validator.w3.org/nu/" target="_blank">HTML Validator</a> ✦
+      <a href="http://jigsaw.w3.org/" target="_blank">CSS Validator</a>
     </p>
     <p>Page built by Isaiah Evans.</p>
   </footer>
