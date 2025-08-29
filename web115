@@ -1,5 +1,25 @@
-<h2>Home</h2>
-<p>Hello, my name is Isaiah Evans. Welcome to my GitHub Pages site for Web 115.</p>
-<a href="web115/">Click to go to my WEB115 course</a>
-<p>You can learn more about me by reading my <a href="web115/introduction.html">introduction</a>.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isaiah Evans — WEB115 — Home</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
 
+  <header>
+    </header>
+
+  <main>
+    <h2>Home</h2>
+    <p>Welcome to my WEB115 homepage. Feel free to explore and learn more about me and my work by checking out my <a href="introduction.html">introduction</a>.</p>
+  </main>
+
+  <footer>
+    </footer>
+  
+  <script src="scripts/main.js"></script>
+
+</body>
+</html>
