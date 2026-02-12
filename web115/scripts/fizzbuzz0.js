@@ -8,15 +8,15 @@ document.getElementById("nameForm").addEventListener("submit", function(e) {
     // Build greeting
     let greetingText = "Welcome to Streamline Studios ";
 
-    if(first !== ""){
+    if (first !== ""){
         greetingText += first + " ";
     }
 
-    if(middle !== ""){
+    if (middle !== ""){
         greetingText += middle + ". ";
     }
 
-    if(last !== ""){
+    if (last !== ""){
         greetingText += last;
     }
 
@@ -26,7 +26,7 @@ document.getElementById("nameForm").addEventListener("submit", function(e) {
     let limit = prompt("How high do you want to count, " + first + "?");
     limit = parseInt(limit);
 
-    if(isNaN(limit) || limit <= 0){
+    if (isNaN(limit) || limit <= 0){
         alert("Please enter a valid number.");
         return;
     }
@@ -38,7 +38,7 @@ document.getElementById("nameForm").addEventListener("submit", function(e) {
     let word1 = "Streamline";
     let word2 = "Vision";
 
-    for(let i = 1; i <= limit; i++){
+    for (let i = 1; i <= limit; i++){
 
         let evenOdd = (i % 2 === 0) ? "even" : "odd";
 
