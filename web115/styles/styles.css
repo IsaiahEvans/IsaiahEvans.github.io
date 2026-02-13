@@ -42,3 +42,9 @@ footer {
     padding: 10px;
     font-size: 14px;
 }
+#output ul { 
+  line-height: 1.6; 
+}
+#output li { 
+  margin: 2px 0; 
+}
