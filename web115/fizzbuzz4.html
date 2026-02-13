@@ -14,46 +14,55 @@
 
     <h3 id="greeting">Welcome to Streamline Studios!</h3>
 
-    <h2>FizzBuzz 4</h2>
+    <form id="fizzForm">
 
-<form id="fizzForm">
+      <h3>Your Name</h3>
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name">
 
-<h3>Divisor Settings</h3>
+      <label for="middle_initial">Middle Initial:</label>
+      <input type="text" id="middle_initial" maxlength="1">
 
-<label>Number 1:</label>
-<input type="number" id="div1" value="3">
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name">
 
-<label>Word 1:</label>
-<input type="text" id="word1" value="Exploration">
+      <br><br>
 
-<br><br>
+      <h3>Divisor Settings</h3>
 
-<label>Number 2:</label>
-<input type="number" id="div2" value="5">
+      <label for="div1">Number 1:</label>
+      <input type="number" id="div1" value="3">
 
-<label>Word 2:</label>
-<input type="text" id="word2" value="Level-Up">
+      <label for="word1">Word 1:</label>
+      <input type="text" id="word1" value="Exploration">
 
-<br><br>
+      <br><br>
 
-<label>Number 3:</label>
-<input type="number" id="div3" value="7">
+      <label for="div2">Number 2:</label>
+      <input type="number" id="div2" value="5">
 
-<label>Word 3:</label>
-<input type="text" id="word3" value="BANG!">
+      <label for="word2">Word 2:</label>
+      <input type="text" id="word2" value="Level-Up">
 
-<br><br>
+      <br><br>
 
-<label>Count To:</label>
-<input type="number" id="limit" value="125">
+      <label for="div3">Number 3:</label>
+      <input type="number" id="div3" value="7">
 
-<br><br>
-<button type="submit">Generate</button>
+      <label for="word3">Word 3:</label>
+      <input type="text" id="word3" value="BANG!">
 
-</form>
+      <br><br>
 
-<div id="output"></div>
+      <label for="limit">Count To:</label>
+      <input type="number" id="limit" value="125">
 
+      <br><br>
+      <button type="submit">Generate</button>
+
+    </form>
+
+    <div id="output"></div>
   </main>
 
   <div data-include="components/footer.html"></div>
