@@ -13,7 +13,7 @@ document.getElementById("fizzForm").addEventListener("submit", function(e){
 
     // Limit
     let limit = parseInt(document.getElementById("limit").value);
-    if(isNaN(limit) || limit <= 0){
+    if (isNaN(limit) || limit <= 0){
         alert("Enter a valid count number.");
         return;
     }
@@ -30,12 +30,12 @@ document.getElementById("fizzForm").addEventListener("submit", function(e){
 
     const list = document.createElement("ol");
 
-    for(let i = 1; i <= limit; i++){
+    for (let i = 1; i <= limit; i++){
 
         let words = [];
 
-        for(const rule of rules){
-            if(rule.divisor && i % rule.divisor === 0){
+        for (const rule of rules){
+            if (rule.divisor && i % rule.divisor === 0){
                 words.push(rule.word);
             }
         }
@@ -43,7 +43,7 @@ document.getElementById("fizzForm").addEventListener("submit", function(e){
         const li = document.createElement("li");
 
         // blank when nothing matches (REQUIRED BY ASSIGNMENT)
-        if(words.length > 0){
+        if (words.length > 0){
             li.textContent = words.join(", ");
         } else {
             li.textContent = "";
