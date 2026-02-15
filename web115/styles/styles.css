@@ -48,3 +48,11 @@ footer {
 #output li { 
   margin: 2px 0; 
 }
+.logo {
+    float: left;
+    height: 60px;
+    margin-right: 15px;
+}
+header {
+    overflow: auto;
+}
