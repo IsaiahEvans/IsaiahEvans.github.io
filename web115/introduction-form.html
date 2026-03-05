@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Isaiah Evans - Introduction Form</title>
+
+  <!-- Use your site CSS if you want consistent branding -->
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+  <!-- If you are using HTMLInclude components -->
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2>Introduction Form</h2>
+
+    <p>
+      Edit the fields and click <strong>Submit</strong>.
+      The output below should match your <strong>Introduction</strong> page format.
+    </p>
+
+    <form id="introForm">
+      <fieldset>
+        <legend>About You</legend>
+
+        <div>
+          <label for="major">Major:</label><br />
+          <input
+            type="text"
+            id="major"
+            name="major"
+            value="Web Development"
+            required
+            minlength="2"
+            maxlength="60"
+          />
+        </div>
+
+        <br />
+
+        <div>
+          <label for="careerGoal">Career Goal:</label><br />
+          <input
+            type="text"
+            id="careerGoal"
+            name="careerGoal"
+            value="Run my own creative media business"
+            required
+            minlength="5"
+            maxlength="120"
+          />
+        </div>
+
+        <br />
+
+        <div>
+          <label for="interests">Interests:</label><br />
+          <textarea
+            id="interests"
+            name="interests"
+            rows="3"
+            required
+            minlength="5"
+            maxlength="200"
+          >Photography, videography, cars, content creation</textarea>
+        </div>
+
+        <br />
+
+        <div>
+          <label for="software">Software I Use:</label><br />
+          <textarea
+            id="software"
+            name="software"
+            rows="2"
+            required
+            minlength="2"
+            maxlength="120"
+          >Lightroom, Photoshop, Premiere Pro</textarea>
+        </div>
+      </fieldset>
+
+      <br />
+
+      <fieldset>
+        <legend>Current Courses (add/remove as needed)</legend>
+
+        <p id="coursesHelp">
+          Add or remove course fields. On submit, they will display as a nested list like your introduction page.
+        </p>
+
+        <div id="coursesContainer" aria-describedby="coursesHelp">
+          <!-- Course Row 1 -->
+          <div class="course-row">
+            <label for="course-1">Course 1:</label>
+            <input
+              type="text"
+              id="course-1"
+              name="course"
+              value="WEB115"
+              required
+              minlength="3"
+              maxlength="20"
+            />
+            <button type="button" class="remove-course" aria-label="Remove course 1">Remove</button>
+          </div>
+
+          <br />
+
+          <!-- Course Row 2 -->
+          <div class="course-row">
+            <label for="course-2">Course 2:</label>
+            <input
+              type="text"
+              id="course-2"
+              name="course"
+              value="WEB140"
+              required
+              minlength="3"
+              maxlength="20"
+            />
+            <button type="button" class="remove-course" aria-label="Remove course 2">Remove</button>
+          </div>
+        </div>
+
+        <br />
+        <button type="button" id="addCourseBtn">Add another course</button>
+      </fieldset>
+
+      <br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr />
+
+    <section aria-live="polite" aria-atomic="true">
+      <h2>Output (should match Introduction page)</h2>
+      <div id="output"></div>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <!-- If using HTMLInclude -->
+  <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    // ====== Course add/remove logic ======
+    const coursesContainer = document.getElementById("coursesContainer");
+    const addCourseBtn = document.getElementById("addCourseBtn");
+    const introForm = document.getElementById("introForm");
+    const output = document.getElementById("output");
+
+    function getNextCourseNumber() {
+      const inputs = coursesContainer.querySelectorAll('input[name="course"]');
+      return inputs.length + 1;
+    }
+
+    function renumberCourses() {
+      const rows = coursesContainer.querySelectorAll(".course-row");
+      rows.forEach((row, index) => {
+        const num = index + 1;
+        const label = row.querySelector("label");
+        const input = row.querySelector('input[name="course"]');
+        const removeBtn = row.querySelector(".remove-course");
+
+        label.setAttribute("for", `course-${num}`);
+        label.textContent = `Course ${num}:`;
+
+        input.id = `course-${num}`;
+
+        removeBtn.setAttribute("aria-label", `Remove course ${num}`);
+      });
+    }
+
+    function addCourse(value = "") {
+      const num = getNextCourseNumber();
+
+      const row = document.createElement("div");
+      row.className = "course-row";
+
+      row.innerHTML = `
+        <label for="course-${num}">Course ${num}:</label>
+        <input
+          type="text"
+          id="course-${num}"
+          name="course"
+          value="${value}"
+          required
+          minlength="3"
+          maxlength="20"
+        />
+        <button type="button" class="remove-course" aria-label="Remove course ${num}">Remove</button>
+      `;
+
+      coursesContainer.appendChild(document.createElement("br"));
+      coursesContainer.appendChild(row);
+      renumberCourses();
+    }
+
+    function removeCourseRow(buttonEl) {
+      const row = buttonEl.closest(".course-row");
+      const brBefore = row.previousElementSibling; // we inserted <br> before each row after the first two
+
+      if (row) row.remove();
+      if (brBefore && brBefore.tagName === "BR") brBefore.remove();
+
+      // Make sure there is at least 1 course field
+      const remaining = coursesContainer.querySelectorAll('input[name="course"]');
+      if (remaining.length === 0) {
+        addCourse("WEB115");
+      }
+
+      renumberCourses();
+    }
+
+    addCourseBtn.addEventListener("click", () => addCourse(""));
+
+    coursesContainer.addEventListener("click", (e) => {
+      if (e.target.classList.contains("remove-course")) {
+        removeCourseRow(e.target);
+      }
+    });
+
+    // ====== Submit -> output back to page ======
+    introForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // Trigger HTML validation (required, minlength, etc.)
+      if (!introForm.checkValidity()) {
+        introForm.reportValidity();
+        return;
+      }
+
+      const major = document.getElementById("major").value.trim();
+      const careerGoal = document.getElementById("careerGoal").value.trim();
+      const interests = document.getElementById("interests").value.trim();
+      const software = document.getElementById("software").value.trim();
+
+      const courseInputs = coursesContainer.querySelectorAll('input[name="course"]');
+      const courses = Array.from(courseInputs)
+        .map(i => i.value.trim())
+        .filter(v => v.length > 0);
+
+      // Build output to match your intro page structure
+      // (nested bullets for courses)
+      let html = `
+        <ul>
+          <li>Major: ${escapeHtml(major)}</li>
+          <li>Career Goal: ${escapeHtml(careerGoal)}</li>
+          <li>Interests: ${escapeHtml(interests)}</li>
+          <li>Software I Use: ${escapeHtml(software)}</li>
+          <li>Current Courses:
+            <ol>
+              ${courses.map(c => `<li>${escapeHtml(c)}</li>`).join("")}
+            </ol>
+          </li>
+        </ul>
+      `;
+
+      output.innerHTML = html;
+    });
+
+    // Small helper to avoid HTML injection issues
+    function escapeHtml(str) {
+      return str
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+
+  <!-- Validation script (required by your class) -->
+  <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+</body>
+</html>
