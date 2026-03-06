@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<title>Streamline Studios</title>
+<title>Streamline Studios Business Card</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -17,42 +18,68 @@ background:#111111;
 font-family:Arial, Helvetica, sans-serif;
 }
 
+/* card container */
+
 .card{
-background:#f2f2f2;
-padding:30px;
-width:380px;
+width:850px;
+height:400px;
+background:#1a1a1a;
 border-radius:12px;
-box-shadow:0 20px 40px rgba(0,0,0,0.6);
-border-top:6px solid #2d6cdf;
+box-shadow:0 25px 60px rgba(0,0,0,0.7);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:60px;
+color:white;
+border-left:8px solid #2d6cdf;
+}
+
+/* left side */
+
+.info{
+line-height:1.8;
+}
+
+.name{
+font-size:36px;
+font-weight:bold;
+}
+
+.title{
+color:#2d6cdf;
+font-size:22px;
+margin-bottom:20px;
+}
+
+.contact{
+font-size:18px;
+}
+
+/* right side logo */
+
+.logo{
 text-align:center;
 }
 
-h1{
-margin:0;
-font-size:26px;
-color:#111111;
+.logo img{
+width:220px;
 }
 
-h2{
-margin:4px 0 12px;
-font-size:16px;
-color:#2d6cdf;
+/* responsive */
+
+@media(max-width:900px){
+
+.card{
+width:90%;
+height:auto;
+flex-direction:column;
+text-align:center;
 }
 
-p{
-margin:6px 0;
-font-size:14px;
+.logo{
+margin-top:30px;
 }
 
-.tagline{
-margin-top:10px;
-font-style:italic;
-color:#444;
-}
-
-a{
-color:#2d6cdf;
-text-decoration:none;
 }
 
 </style>
@@ -62,23 +89,37 @@ text-decoration:none;
 
 <div class="card">
 
-<h1>Isaiah Evans</h1>
-<h2>Streamline Studios</h2>
+<div class="info">
 
-<p class="tagline">"Capture the Vision."</p>
+<div class="name">Isaiah Evans</div>
+<div class="title">Creative Media Director</div>
 
-<p><strong>Email:</strong> isaiah@streamlinestudiosmedia.com</p>
-<p><strong>Website:</strong> www.streamlinestudiosmedia.com</p>
-<p><strong>Phone:</strong> (717) 555-4832</p>
-<p><strong>Address:</strong> 245 Market Street Suite 204<br>Harrisburg, PA 17101</p>
+<div class="contact">
+📧 isaiah@streamlinestudiosmedia.com
+</div>
 
-<p><strong>Services:</strong><br>
-Automotive Photography<br>
-Portrait Photography<br>
-Videography</p>
+<div class="contact">
+📞 (717) 555-4832
+</div>
 
-<p><strong>Instagram:</strong><br>
-@_streamlinestudios</p>
+<div class="contact">
+🌐 www.streamlinestudiosmedia.com
+</div>
+
+<div class="contact">
+📍 245 Market Street Suite 204<br>
+Harrisburg, PA 17101
+</div>
+
+<div class="contact">
+📷 @_streamlinestudios
+</div>
+
+</div>
+
+<div class="logo">
+<img src="logo.png" alt="Streamline Studios">
+</div>
 
 </div>
 
