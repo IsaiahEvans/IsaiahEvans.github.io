@@ -6,12 +6,9 @@
   --text: #222222;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
@@ -22,7 +19,16 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: var(--white);
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2,
+h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   color: var(--accent);
@@ -65,8 +71,7 @@ h1, h2, h3 {
   font-weight: 700;
 }
 
-.site-nav a:hover,
-.site-nav a.active {
+.active {
   color: var(--accent);
 }
 
@@ -92,16 +97,6 @@ main {
   text-align: center;
   background: linear-gradient(135deg, #111111 0%, #1d1d1d 100%);
   color: var(--white);
-}
-
-.hero h1 {
-  color: var(--white);
-  font-size: 2.5rem;
-}
-
-.hero p {
-  max-width: 700px;
-  margin: 0.75rem auto;
 }
 
 .tagline {
@@ -141,6 +136,7 @@ main {
   padding: 0.75rem;
   font-weight: 700;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
 }
 
 .cards {
@@ -171,17 +167,13 @@ main {
   cursor: pointer;
 }
 
-.button:hover {
-  background: #1f54ad;
-}
-
-.button.outline {
+.outline {
   background: transparent;
   border: 2px solid var(--accent);
   color: var(--accent);
 }
 
-.button.small {
+.small-button {
   padding: 0.5rem 0.9rem;
   font-size: 0.9rem;
 }
@@ -204,6 +196,7 @@ main {
   border: 1px solid #cccccc;
   border-radius: 8px;
   font: inherit;
+  box-sizing: border-box;
 }
 
 .site-footer {
@@ -221,10 +214,6 @@ main {
   color: var(--white);
   text-decoration: none;
   margin: 0 0.5rem;
-}
-
-.footer-links a:hover {
-  color: var(--accent);
 }
 
 .small {
