@@ -55,8 +55,16 @@ p{ margin:.25rem 0 .75rem; color:var(--muted); }
 
 /* mobile nav */
 @media (max-width:720px){
-  .nav-toggle{ display:inline-block; }
-  .site-nav{ position:absolute; inset:56px 0 auto 0; background:#fff; border-bottom:1px solid var(--border);
-             display:none; flex-direction:column; padding:.75rem 1rem; }
-  .site-nav.open{ display:flex; }
+  .nav-toggle { display:inline-block; }
+  .site-nav {
+    position:absolute;
+    inset:56px 0 auto 0;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    display:none;
+    flex-direction:column;
+    padding:.75rem 1rem;
+  }
+  .open { display:flex; }
 }
+
