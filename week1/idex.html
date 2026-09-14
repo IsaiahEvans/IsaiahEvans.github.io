@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 — HTML, CSS &amp; JavaScript Webpage | Isaiah Evans</title>
+
+    <style>
+        :root {
+            --bg:      #0b0d10;
+            --card:    #161b22;
+            --border:  #262d38;
+            --text:    #e7ecf3;
+            --dim:     #939fb0;
+            --accent:  #ff7a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            padding: 48px 24px 80px;
+        }
+
+        .wrap { max-width: 720px; margin: 0 auto; }
+
+        .back {
+            display: inline-block;
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 34px;
+            transition: color 0.2s ease;
+        }
+        .back:hover { color: var(--accent); }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: clamp(1.9rem, 6vw, 2.8rem);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+
+        .lead { color: var(--dim); margin-bottom: 40px; }
+
+        h2 {
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+
+        .panel {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 26px 24px;
+            margin-bottom: 22px;
+        }
+
+        .panel-note {
+            color: var(--dim);
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+        }
+
+        /* ---- Form row ---- */
+        .row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        input[type="text"] {
+            flex: 1 1 220px;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--text);
+            padding: 12px 20px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        button {
+            background-color: var(--accent);
+            color: #0b0d10;
+            border: none;
+            border-radius: 999px;
+            padding: 12px 24px;
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+
+        button:hover { transform: translateY(-2px); }
+
+        button.secondary {
+            background-color: transparent;
+            color: var(--dim);
+            border: 1px solid var(--border);
+        }
+
+        button.secondary:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* ---- Shot list ---- */
+        ul { list-style: none; margin-top: 20px; }
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            animation: slideIn 0.28s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-12px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        li.done .shot-name {
+            text-decoration: line-through;
+            color: var(--dim);
+        }
+
+        li.done { border-left-color: var(--border); }
+
+        .shot-name { flex: 1; cursor: pointer; }
+
+        .remove {
+            background: none;
+            border: none;
+            color: var(--dim);
+            font-size: 1.3rem;
+            line-height: 1;
+            padding: 0 6px;
+            cursor: pointer;
+        }
+
+        .remove:hover { color: #ff5c5c; transform: none; }
+
+        .empty { color: var(--dim); font-size: 0.9rem; font-style: italic; margin-top: 18px; }
+
+        /* ---- Counter ---- */
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--dim);
+            font-size: 0.85rem;
+            margin-top: 50px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+
+    <a href="../" class="back">&larr; Back to portfolio</a>
+
+    <p class="eyebrow">Week 1 Project</p>
+    <h1>HTML, CSS &amp; JavaScript Webpage</h1>
+    <p class="lead">
+        A small single-page app built to practice the three core front-end languages together:
+        HTML for structure, CSS for the design, and JavaScript to make the page respond to the
+        user. The idea comes from my own work &mdash; before a car shoot I always write out a
+        shot list, so I built one that runs in the browser.
+    </p>
+
+    <section class="panel">
+        <h2>Shot List Builder</h2>
+        <p class="panel-note">
+            Type a shot and press Add. Click a shot's name to mark it complete, or use
+            &times; to remove it.
+        </p>
+
+        <div class="row">
+            <input type="text" id="shotInput" placeholder="e.g. Front three-quarter, low angle">
+            <button id="addBtn">Add</button>
+            <button id="clearBtn" class="secondary">Clear All</button>
+        </div>
+
+        <ul id="shotList"></ul>
+        <p class="empty" id="emptyNote">No shots yet — add your first one above.</p>
+
+        <div class="stats">
+            <div>
+                <span class="stat-num" id="totalCount">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div>
+                <span class="stat-num" id="doneCount">0</span>
+                <span class="stat-label">Captured</span>
+            </div>
+            <div>
+                <span class="stat-num" id="leftCount">0</span>
+                <span class="stat-label">Remaining</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>What I practiced</h2>
+        <p class="panel-note" style="margin-bottom:0;">
+            Semantic HTML structure &middot; CSS custom properties and Flexbox &middot;
+            a keyframe animation &middot; responsive layout &middot; DOM creation and removal
+            in JavaScript &middot; event listeners for click and keypress &middot;
+            keeping a live counter in sync with the list.
+        </p>
+    </section>
+
+    <footer>
+        Isaiah Evans &mdash; WEB140, Central Piedmont Community College
+    </footer>
+
+</div>
+
+<script>
+    const shotInput  = document.querySelector("#shotInput");
+    const addBtn     = document.querySelector("#addBtn");
+    const clearBtn   = document.querySelector("#clearBtn");
+    const shotList   = document.querySelector("#shotList");
+    const emptyNote  = document.querySelector("#emptyNote");
+
+    const totalCount = document.querySelector("#totalCount");
+    const doneCount  = document.querySelector("#doneCount");
+    const leftCount  = document.querySelector("#leftCount");
+
+    function updateStats() {
+        const all  = shotList.querySelectorAll("li");
+        const done = shotList.querySelectorAll("li.done");
+
+        totalCount.textContent = all.length;
+        doneCount.textContent  = done.length;
+        leftCount.textContent  = all.length - done.length;
+
+        emptyNote.style.display = all.length === 0 ? "block" : "none";
+    }
+
+    function addShot() {
+        const text = shotInput.value.trim();
+        if (text === "") {
+            shotInput.focus();
+            return;
+        }
+
+        const item = document.createElement("li");
+
+        const name = document.createElement("span");
+        name.className = "shot-name";
+        name.textContent = text;
+        name.addEventListener("click", function () {
+            item.classList.toggle("done");
+            updateStats();
+        });
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "remove";
+        removeBtn.textContent = "×";
+        removeBtn.setAttribute("aria-label", "Remove shot");
+        removeBtn.addEventListener("click", function () {
+            item.remove();
+            updateStats();
+        });
+
+        item.appendChild(name);
+        item.appendChild(removeBtn);
+        shotList.appendChild(item);
+
+        shotInput.value = "";
+        shotInput.focus();
+        updateStats();
+    }
+
+    addBtn.addEventListener("click", addShot);
+
+    shotInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            addShot();
+        }
+    });
+
+    clearBtn.addEventListener("click", function () {
+        shotList.innerHTML = "";
+        updateStats();
+    });
+
+    // Start with a few example shots so the page isn't empty on load
+    ["Front three-quarter, low angle", "Wheel and brake detail", "Rolling shot at sunset"]
+        .forEach(function (example) {
+            shotInput.value = example;
+            addShot();
+        });
+</script>
+
+</body>
+</html>
