@@ -2,30 +2,233 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WEB115 - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaiah Evans | WEB140 Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>WEB115</h1>
+<!-- ===== NAVIGATION ===== -->
+<header class="site-header">
+    <nav class="nav">
+        <a href="#home" class="nav-logo">IE<span class="dot">.</span></a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Creative feature: light / dark theme switch -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch color theme">Light</button>
+    </nav>
 </header>
 
 <main>
-    <h2>Home</h2>
-    <a href="web115/index.html">Click to go to my WEB115 course</a>
-    <p><a href="https://github.com/IsaiahEvans/web140">Visit my WEB140 repository</a></p>
 
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">Central Piedmont Community College &middot; WEB140</p>
+            <h1 class="hero-title">Isaiah Evans</h1>
+            <p class="hero-role">
+                <span id="typedRole"></span><span class="caret">|</span>
+            </p>
+            <p class="hero-blurb">
+                Building the web from the Charlotte area &mdash; part student, part photographer,
+                learning to make things that look as good as they work.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="#about" class="btn btn-ghost">About Me</a>
+            </div>
+        </div>
+        <div class="hero-glow" aria-hidden="true"></div>
+    </section>
 
-    <p>
-        This is the home page for my WEB115 course. Please feel free to look around.
-        You can read more about me <a href="web115/introduction.html">here.</a>
-        Thank you.
-    </p>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section reveal">
+        <h2 class="section-title"><span class="num">01</span> About Me</h2>
+
+        <div class="about-grid">
+
+            <div class="about-photo">
+                <!-- Swap this file for your own photo. Keep the same filename
+                     (profile.jpg) and nothing else has to change. -->
+                <img src="profile.jpg" alt="Profile image for Isaiah Evans">
+                <p class="photo-caption">Charlotte, NC</p>
+            </div>
+
+            <div class="about-text">
+                <p>
+                    I'm a student at Central Piedmont Community College working toward an
+                    Associate in Arts along with a stack of IT certificates, with plans to
+                    transfer into the Computer Science program at UNC Charlotte.
+                </p>
+                <p>
+                    Outside of class I run <strong>Streamline Studios</strong>, an automotive
+                    photography and videography business here in the Charlotte area. Shooting
+                    cars taught me that the technical side and the creative side aren't
+                    actually separate &mdash; framing a shot and structuring a page come from
+                    the same instinct for making something people want to look at.
+                </p>
+                <p>
+                    I'm taking WEB140 because front-end development sits right where those two
+                    interests meet. I've already earned CPCC certificates in Front-End
+                    Development Fundamentals, IT-JavaScript, IT-Java, and IT Fundamentals, and
+                    this course is where I get to put them together into something actually
+                    published. By the end of the semester I want this page to be a portfolio
+                    I'd be comfortable sending to an employer.
+                </p>
+
+                <!-- ===== JavaScript interactive feature (Part 5) ===== -->
+                <div class="interactive-box">
+                    <button id="welcomeButton" class="btn btn-primary">Tell Me Something</button>
+                    <p id="message" class="message">Click the button &mdash; there's more I didn't put above.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== SKILLS (creative feature: extra section) ===== -->
+    <section id="skills" class="section reveal">
+        <h2 class="section-title"><span class="num">02</span> Skills</h2>
+
+        <div class="skills-grid">
+            <div class="skill">
+                <div class="skill-head"><span>HTML5</span><span class="skill-pct">85%</span></div>
+                <div class="bar"><div class="bar-fill" data-level="85"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>CSS3</span><span class="skill-pct">80%</span></div>
+                <div class="bar"><div class="bar-fill" data-level="80"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>JavaScript</span><span class="skill-pct">70%</span></div>
+                <div class="bar"><div class="bar-fill" data-level="70"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>Java</span><span class="skill-pct">60%</span></div>
+                <div class="bar"><div class="bar-fill" data-level="60"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>Git &amp; GitHub</span><span class="skill-pct">75%</span></div>
+                <div class="bar"><div class="bar-fill" data-level="75"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>Photo &amp; Video Editing</span><span class="skill-pct">90%</span></div>
+                <div class="bar"><div class="bar-fill" data-level="90"></div></div>
+            </div>
+        </div>
+
+        <h3 class="sub-title">Certifications</h3>
+        <ul class="cert-list">
+            <li>Front-End Development Fundamentals &mdash; CPCC</li>
+            <li>IT-JavaScript &mdash; CPCC</li>
+            <li>IT-Java &mdash; CPCC</li>
+            <li>IT Fundamentals &mdash; CPCC</li>
+        </ul>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section reveal">
+        <h2 class="section-title"><span class="num">03</span> Projects</h2>
+        <p class="section-lead">
+            WEB140 projects, added as I complete them this semester.
+        </p>
+
+        <div class="project-grid">
+
+            <a href="week1/" class="project-card is-live">
+                <span class="project-status">Complete</span>
+                <h3>HTML, CSS &amp; JavaScript Webpage</h3>
+                <p>A hands-on page built from scratch to practice structure, styling and DOM interaction.</p>
+                <span class="project-link">View project &rarr;</span>
+            </a>
+
+            <a href="#" class="project-card is-soon">
+                <span class="project-status">Coming soon</span>
+                <h3>Color Theory Project</h3>
+                <p>Exploring palettes, contrast and how color choices carry meaning on the web.</p>
+                <span class="project-link">Not published yet</span>
+            </a>
+
+            <a href="#" class="project-card is-soon">
+                <span class="project-status">Coming soon</span>
+                <h3>Typography Design</h3>
+                <p>Type pairing, hierarchy and readability across different screen sizes.</p>
+                <span class="project-link">Not published yet</span>
+            </a>
+
+            <a href="#" class="project-card is-soon">
+                <span class="project-status">Coming soon</span>
+                <h3>Image Editing Showcase</h3>
+                <p>Editing and optimizing images for the web &mdash; the part I already do every week.</p>
+                <span class="project-link">Not published yet</span>
+            </a>
+
+            <a href="#" class="project-card is-soon">
+                <span class="project-status">Coming soon</span>
+                <h3>Figma Prototype</h3>
+                <p>Wireframing and prototyping an interface before writing any code.</p>
+                <span class="project-link">Not published yet</span>
+            </a>
+
+            <a href="#" class="project-card is-soon">
+                <span class="project-status">Coming soon</span>
+                <h3>WordPress Website</h3>
+                <p>Building and customizing a site on a content management system.</p>
+                <span class="project-link">Not published yet</span>
+            </a>
+
+            <a href="#" class="project-card is-soon">
+                <span class="project-status">Optional</span>
+                <h3>Google Sites Project</h3>
+                <p>An optional build comparing a no-code site builder against hand-written code.</p>
+                <span class="project-link">Not published yet</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section reveal">
+        <h2 class="section-title"><span class="num">04</span> Contact</h2>
+        <p class="section-lead">
+            The best place to see what I'm building is GitHub.
+        </p>
+
+        <div class="contact-links">
+            <a class="contact-card" href="https://github.com/IsaiahEvans" target="_blank" rel="noopener">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">@IsaiahEvans</span>
+            </a>
+
+            <!-- OPTIONAL: uncomment and fill these in if you want them public.
+            <a class="contact-card" href="mailto:YOUR-EMAIL-HERE">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">YOUR-EMAIL-HERE</span>
+            </a>
+
+            <a class="contact-card" href="https://instagram.com/YOUR-HANDLE" target="_blank" rel="noopener">
+                <span class="contact-label">Streamline Studios</span>
+                <span class="contact-value">@YOUR-HANDLE</span>
+            </a>
+            -->
+        </div>
+    </section>
+
 </main>
 
+<footer class="site-footer">
+    <p>&copy; <span id="year"></span> Isaiah Evans &mdash; WEB140 Web Development Portfolio</p>
+    <p class="footer-sub">Central Piedmont Community College</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
-
-
-
